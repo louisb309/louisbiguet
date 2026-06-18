@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Oscillation - Mon Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+            margin-bottom: 40px;
+        }
+        
+        .back-link:hover {
+            background: #764ba2;
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+        
+        .project-header h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .project-header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .project-section {
+            margin-bottom: 40px;
+        }
+        
+        .project-section h3 {
+            color: #667eea;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .project-section p {
+            font-size: 1em;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .project-section ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .project-section li {
+            margin-bottom: 10px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .highlight {
+            background: #f4f4f4;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .highlight h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mon Portfolio</h1>
+        <p>Louis Biguet, étudiant en BUT de Mesures Physiques</p>
+    </header>
+    
+    <div class="container">
+        <a href="./index.html" class="back-link">← Retour au Portfolio</a>
+        
+        <div class="project-header">
+            <h2>📈 Projet Oscillation</h2>
+            <p>Analyse d'un pendule oscillant : traitement de données gyroscope et modélisation physique</p>
+        </div>
+        
+        <section class="project-section">
+            <h3>Contexte du Projet</h3>
+            <p>
+                Ce projet SAE (Situation d'Apprentissage et d'Évaluation) s'inscrit dans ma formation en BUT Mesures Physiques. L'objectif principal était d'analyser le mouvement oscillatoire d'un pendule en utilisant un capteur gyroscope (accéléromètre et gyroscope SMD) intégré dans une carte de mesure. Les données collectées à la chocolaterie de Blois constituent un cas d'application réel, permettant d'appliquer les méthodes d'analyse de données et de traitement du signal.
+            </p>
+        </section>
+        
+        <section class="project-section">
+            <h3>Dispositif Expérimental</h3>
+            <ul>
+                <li><strong>Capteur :</strong> Gyroscope et accéléromètre SMD intégrés dans une carte de mesure</li>
+                <li><strong>Système étudié :</strong> Pendule de longueur L = 1.20 m en régime oscillatoire amorti</li>
+                <li><strong>Mesures :</strong> Trois acquisitions complètes du signal gyroscope (composante Z)</li>
+                <li><strong>Fréquence d'échantillonnage :</strong> Données horodatées avec résolution temporelle</li>
+            </ul>
+        </section>
+        
+        <section class="project-section">
+            <h3>Données et Fichiers d'Analyse</h3>
+            <ul>
+                <li><strong>Fichiers CSV :</strong> Trois mesures indépendantes (mesure_pendule_1.csv, 2, 3)</li>
+                <li><strong>Format des données :</strong> Colonnes incluant temps, accéléromètre X/Y/Z et gyroscope X/Y/Z</li>
+                <li><strong>Utilisation :</strong> Focus sur la composante Z du gyroscope pour l'analyse de l'oscillation</li>
+                <li><strong>Jupyter Notebook :</strong> Deux approches d'analyse développées et documentées</li>
+            </ul>
+        </section>
+        
+        <section class="project-section">
+            <h3>Objectifs du Projet</h3>
+            <ul>
+                <li>Acquérir des données réelles de mouvement oscillant avec un gyroscope</li>
+                <li>Intégrer la vitesse angulaire ω(t) pour obtenir l'angle θ(t)</li>
+                <li>Identifier le modèle théorique : oscillation amortie de forme K·cos(ωt)·exp(-αt)</li>
+                <li>Effectuer un ajustement par moindres carrés pour extraire les paramètres physiques</li>
+                <li>Calculer la période T, la fréquence ω et l'accélération gravitationnelle g</li>
+                <li>Quantifier l'amortissement du système</li>
+                <li>Estimer les incertitudes de mesure et les erreurs d'ajustement</li>
+            </ul>
+        </section>
+        
+        <section class="project-section">
+            <h3>Étapes de Traitement</h3>
+            <p>
+                Le traitement des données s'est déroulé selon une méthodologie structurée :
+            </p>
+            <ul>
+                <li><strong>1. Importation et Exploration :</strong> Chargement des données CSV et visualisation de la signature temporelle</li>
+                <li><strong>2. Nettoyage :</strong> Suppression des données instables au début et fin de l'acquisition</li>
+                <li><strong>3. Intégration :</strong> Passage de la vitesse angulaire (gyroscope) à l'angle θ(t) via intégration numérique (scipy.integrate.cumulative_trapezoid)</li>
+                <li><strong>4. Centrage :</strong> Soustraction de la moyenne pour centrer l'oscillation autour de 0</li>
+                <li><strong>5. Modélisation :</strong> Définition du modèle théorique d'oscillation amortie</li>
+                <li><strong>6. Ajustement :</strong> Utilisation de scipy.optimize.curve_fit pour l'ajustement par moindres carrés</li>
+                <li><strong>7. Analyse :</strong> Extraction de T, ω, α et calcul de g = 4π²L/T²</li>
+                <li><strong>8. Visualisation :</strong> Comparaison données expérimentales vs modèle théorique</li>
+            </ul>
+        </section>
+        
+        <div class="highlight">
+            <h4>💡 Points Clés de l'Analyse</h4>
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li><strong>Intégration Numérique :</strong> Conversion du signal gyroscope (vitesse angulaire) en position angulaire</li>
+                <li><strong>Ajustement par Moindres Carrés :</strong> Extraction précise des paramètres physiques K, ω et α</li>
+                <li><strong>Modèle Théorique :</strong> Compréhension de l'oscillation amortie exponentiellement</li>
+                <li><strong>Calcul de g :</strong> Détermination expérimentale de l'accélération gravitationnelle</li>
+                <li><strong>Amplitude de l'Amortissement :</strong> Quantification du coefficient d'amortissement α</li>
+            </ul>
+        </div>
+        
+        <section class="project-section">
+            <h3>Compétences Techniques Développées</h3>
+            <ul>
+                <li><strong>Programmation Python :</strong> Traitement avancé de données avec NumPy et SciPy</li>
+                <li><strong>Intégration Numérique :</strong> Utilisation de scipy.integrate.cumulative_trapezoid pour l'intégration de signaux</li>
+                <li><strong>Ajustement de Courbes :</strong> Mise en œuvre de scipy.optimize.curve_fit pour l'optimisation par moindres carrés</li>
+                <li><strong>Visualisation :</strong> Représentation graphique avec Matplotlib pour la comparaison données/modèle</li>
+                <li><strong>Analyse de Capteurs :</strong> Interprétation des données de gyroscope et accéléromètre</li>
+                <li><strong>Modélisation Physique :</strong> Traduction de phénomènes réels en modèles mathématiques</li>
+                <li><strong>Métrologie :</strong> Calcul et gestion des incertitudes, extraction de grandeurs physiques mesurables</li>
+                <li><strong>Jupyter Notebook :</strong> Documentation interactive du processus d'analyse</li>
+            </ul>
+        </section>
+        
+        <section class="project-section">
+            <h3>Résultats Obtenus</h3>
+            <p>
+                À partir de trois acquisitions de données distinctes, le traitement a permis d'extraire les paramètres caractéristiques de l'oscillation amortie :
+            </p>
+            <ul>
+                <li><strong>Période T :</strong> Déterminée expérimentalement via la fréquence angulaire ω extraite de l'ajustement</li>
+                <li><strong>Accélération gravitationnelle g :</strong> Calculée par la formule T = 2π√(L/g), permettant une comparaison avec les 9.81 m/s² théoriques</li>
+                <li><strong>Amplitude d'amortissement α :</strong> Quantification du frottement et des pertes du système</li>
+                <li><strong>Amplitude initiale K :</strong> Valeur de déplacement angulaire maximale au début de l'oscillation</li>
+            </ul>
+        </section>
+        
+        <section class="project-section">
+            <h3>Conclusions et Apprentissages</h3>
+            <p>
+                Ce projet a démontré mon aptitude à combiner théorie physique et programmation pour résoudre des problèmes réels. La comparaison entre les valeurs calculées et les données expérimentales a validé la pertinence du modèle d'oscillation amortie, mettant en évidence la robustesse de l'approche scientifique.
+            </p>
+            <p>
+                Les apprentissages clés incluent :
+            </p>
+            <ul>
+                <li>L'importance du nettoyage des données (suppression du bruit au début/fin)</li>
+                <li>La puissance de l'intégration numérique pour passer de la vitesse à la position</li>
+                <li>La validation d'un modèle théorique par ajustement sur des données réelles</li>
+                <li>La quantification précise du phénomène d'amortissement observable en pratique</li>
+            </ul>
+        </section>
+        
+    </div>
+    
+    <footer>
+        <p>Contact:</p>
+        <p>Mail: louisb3097@gmail.com</p>
+        <p>N° tel: 06 43 77 55 99</p>
+    </footer>
+</body>
+</html>
